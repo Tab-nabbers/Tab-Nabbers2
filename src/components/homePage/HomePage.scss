@@ -1,0 +1,22 @@
+.homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+
+    &-buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    &-buttons a {
+        margin-left: 10px;
+        border: 1px solid grey;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+        width: 100px;
+        text-align: center;
+    }
+}

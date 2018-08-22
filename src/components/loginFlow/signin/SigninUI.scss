@@ -1,0 +1,25 @@
+// Semantic Default CSS
+.signin.ui.form {
+    max-width: 760px;
+    width: 100%;
+    border: 1px solid grey;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+
+    .field {
+        width: 100%;
+    }
+}
+
+.signin {
+    
+    &-tabs a {
+        margin-left: 10px;
+        
+    }
+}

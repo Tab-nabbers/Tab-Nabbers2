@@ -1,0 +1,21 @@
+.signup.ui.form {
+    width: 100%;
+    max-width: 760px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    border: 1px solid grey;
+
+    .field {
+        width: 100%;
+    }
+}
+
+.signup {
+    &-tabs a {
+        margin-left: 20px;
+    }
+}
