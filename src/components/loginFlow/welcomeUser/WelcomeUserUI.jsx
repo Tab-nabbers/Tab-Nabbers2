@@ -3,21 +3,11 @@ import {Redirect} from 'react-router-dom';
 import { Input, Button, TextArea, Form } from 'semantic-ui-react';
 import './WelcomeUser.css';
 
-/*
-    photo,
-    bio,
-    hireable,
-    name,
-    publicRepo,
-    portfolioWebsite,
-    userLocation
-*/
-
 export default class WelcomeUser extends Component {
 
     componentDidMount = () => {
         const { email, fetchGithubProfile } = this.props;
-        fetchGithubProfile(email)
+        fetchGithubProfile(email);
     };
 
     handleChange = (event) => {
@@ -39,6 +29,7 @@ export default class WelcomeUser extends Component {
     render() {
         const { portfolioWebsite, bio, photo, userLocation, username, isAuthenticated } = this.props;
 
+        console.log('Props: ', this.props);
         if (isAuthenticated) {
             return <Redirect to = '/dashboard'/>
         }

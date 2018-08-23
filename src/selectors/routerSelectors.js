@@ -1,8 +1,3 @@
-export const getRouterMatch = (props) => {
-    return props.match;
-};
+export const getRouterMatch = (props) => props.match;
 
-export const getParams = (props) => {
-    const params = getRouterMatch(props).params;
-    return params;
-};
+export const getParams = (props) => getRouterMatch(props).params;

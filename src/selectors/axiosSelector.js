@@ -1,8 +1,4 @@
 
-export const getPayload = (action) => {
-    return action.payload;
-};
+export const getPayload = (action) => action.payload;
 
-export const getData = (action) => {
-    return getPayload(action).data;
-};
+export const getData = (action) => getPayload(action).data;
