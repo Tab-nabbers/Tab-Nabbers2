@@ -1,30 +1,27 @@
 
 export const getItems = (data) => {
-    if (data.items.length > 1) {
-        return 'No User found';
-    }
-    return data.items[0];
+    return data && data.items ? data.items[0] : null;
 };
 
 export const isUserOnGithub = (data) => {
-    if (data.items.length === 0) {
+    if (data.items.length === 0 || data.items.length >= 2) {
         return false
     }
     return true;
 };
 
 export const getEmail = (data) => {
-    return getItems(data).email;
+    return getItems(data) && getItems(data).email ? getItems(data).email : null;
 };
 
 export const getGithubUrl = (data) => {
-    return getItems(data).url;
+    return getItems(data) && getItems(data).url ? getItems(data).url : null;
 };  
 
 export const getUserName = (data) => {
-    return getItems(data).login;
+    return getItems(data) && getItems(data).login ? getItems(data).login : null;
 };
 
 export const getAvatar = (data) => {
-    return getItems(data).avatar_url;
+    return getItems(data) && getItems(data).avatar_url ? getItems(data).avatar_url : null;
 };

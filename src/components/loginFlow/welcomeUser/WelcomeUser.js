@@ -1,11 +1,43 @@
 import WelcomeUserUI from './WelcomeUserUI';
 import { connect } from 'react-redux';
-import { fetchGithubUserProfile, fetchGithubUserAccount } from '../../../actions//actionCreators';
+import { fetchGithubUserProfile } from '../../../actions//actionCreators';
+import { getValue } from '../../../actions/actionCreators';
+import * as userSelectors from '../../../selectors/userSelectors';
 
 const mapStateToProps = (state, props) => {
+    const { 
+        getPicture, 
+        getWebsite, 
+        getBio, 
+        getName, 
+        getPublicRepo, 
+        isHireable,
+        getLocation,
+        getUsername,
+        getEmail
+    } = userSelectors;
+
+    const photo = getPicture(state);
+    const bio = getBio(state);
+    const hireable = isHireable(state);
+    const name = getName(state);
+    const publicRepo = getPublicRepo(state);
+    const portfolioWebsite = getWebsite(state);
+    const userLocation = getLocation(state);
+    const username = getUsername(state);
+    const email = getEmail(state);
+    
 
     return {
-
+        photo,
+        userLocation,
+        username,
+        bio,
+        email,
+        hireable,
+        name,
+        publicRepo,
+        portfolioWebsite
     };
 };
 
@@ -14,9 +46,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchGithubProfile: (email) => {
             dispatch(fetchGithubUserProfile(email));
         },
-
-        fetchGithubAccount: (url) => {
-            dispatch(fetchGithubUserAccount(url));
+        getValue: (data) => {
+            dispatch(getValue(data));
         }
     };
 };
