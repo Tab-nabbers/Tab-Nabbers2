@@ -52,7 +52,13 @@ export const fetchGithubUserAccount = (url) => {
 };
 
 
-
+export const reviewAndConfirm = (user) => {
+    return {
+        type: types.REVIEW_AND_CONFIRM,
+        // payload: axios({ method: 'POST', data: user }) // TODO
+        user,
+    }
+};
 
 
 

@@ -40,3 +40,7 @@ export const getLocation = (state) => {
 export const getUsername = (state) => {
     return getUser(state).githubUsername;
 };
+
+export const isUserAuthenticated =  (state) => {
+    return getUser(state).isAuthenticated;
+}

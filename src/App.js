@@ -6,7 +6,7 @@ import {
   LoginFlow,
   HomePage,
   WelcomeNewUser,
-  AddUserInfo
+  Dashboard
 } from "./components";
 
 
@@ -14,8 +14,8 @@ const Routes = (props) => (
   <div className="main">
     <Route exact path="/" component={HomePage} />
     <Route exact path="/welcome" component={WelcomeNewUser} />
-    <Route exact path="/add/info" component={AddUserInfo} />
     <Route exact path="/login/:user" component={LoginFlow} />
+    <Route exact path="/dashboard" component={Dashboard} />
   </div>
 );
 export default Routes;

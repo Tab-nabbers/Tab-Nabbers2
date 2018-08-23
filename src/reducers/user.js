@@ -11,7 +11,8 @@ const initialState = {
     picture: 'https://s3.amazonaws.com/tabnabbers/default-profile.png',
     githubFollowers: 0,
     hireable: false,
-    email: ''
+    email: '',
+    isAuthenticated: false
 };
 
 function updateUserInfoWithGithub(state, action) {
@@ -49,6 +50,13 @@ function updateLocation(state, action) {
     }
 };
 
+function updateIsAuthenticated(state, action) {
+    return {
+        ...state,
+        isAuthenticated: true
+    }
+};
+
 const UserReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.FETCH_GITHUB_USER_ACCOUNT_FULFILLED:
@@ -64,6 +72,8 @@ const UserReducer = (state = initialState, action) => {
 
         case types.GET_CURRENT_LOCATION_FULFILLED:
             return updateLocation(state, action);
+        case types.REVIEW_AND_CONFIRM:
+            return updateIsAuthenticated(state, action);
         default:
             return state;
     }

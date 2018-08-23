@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 import { Input, Button, TextArea, Form } from 'semantic-ui-react';
 import './WelcomeUser.css';
 
@@ -27,15 +28,20 @@ export default class WelcomeUser extends Component {
     };
 
     onSubmit = (event) => {
-        event.preventDefault();
-
+        event.preventDefault(); // stop browser default behavior
+        const user = this.props.user;
         // TODO
-        // Submit Profile
+        // Back Implementation to submit data
+        this.props.reviewAndSubmit(user); 
     };
 
 
     render() {
-        const { portfolioWebsite, bio, photo, userLocation, username } = this.props;
+        const { portfolioWebsite, bio, photo, userLocation, username, isAuthenticated } = this.props;
+
+        if (isAuthenticated) {
+            return <Redirect to = '/dashboard'/>
+        }
         return (
             <Form className="welcome-user" onSubmit={this.onSubmit}>
                 <img src={photo} alt="" />
