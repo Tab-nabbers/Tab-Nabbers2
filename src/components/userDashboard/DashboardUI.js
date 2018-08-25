@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from '../../common/sidebar/Sidebar';
+import Header from '../../common/header/Header';
+
 import './dashboard.css';
 
 export default class DashboardUI extends Component {
@@ -7,8 +9,9 @@ export default class DashboardUI extends Component {
 
         return (
             <div className="dashboard">
-                <Sidebar />
-                
+                <Header />
+                <Sidebar {...this.props} />
+
                 <div className="dashboard-container">
                     <h2>I am the Dashboard UI Page</h2>
                 </div>
@@ -16,3 +19,4 @@ export default class DashboardUI extends Component {
         );
     }
 }
+

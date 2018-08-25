@@ -3,18 +3,27 @@
 
 .dashboard {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-direction: column;
     width: 100%;
+    margin-top: 8em;
+
+
 
     .sidebar {
         width: 220px;
         border: 1px solid lightgrey;
-        height: 100vh;
-        
+        border-bottom: none;
+        min-height: 90%;
+        position: fixed;
     }
 
     &-container {
+        display: flex;
+        top: 0px;
+        flex: 1;
+        position: relative;
+        flex-direction: column;
+        margin-left: 220px;
         border: 1px solid lightgrey;
         width: 85%;
     }
