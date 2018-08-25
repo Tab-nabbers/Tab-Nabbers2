@@ -1,0 +1,56 @@
+.sidebar {
+
+
+    &-section {
+        position: relative;
+
+        h2 {
+            margin-left: 5px;
+            margin-top: 20px;
+        }
+
+        &__item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        &__item p {
+            margin-left: 30px;
+
+        }
+        
+
+        &__item i {
+            font-size: 18px;
+        }
+
+    }
+
+    &-section:after {
+        content: "";
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid lightgrey;
+        height: 1px;
+        background: red;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+    }
+
+    &-section:last-child {
+        position: absolute;
+        bottom: 0;
+    }
+
+    &-section:last-child:after {
+        content: "";
+        border: none;
+        height: 0;
+    }
+}

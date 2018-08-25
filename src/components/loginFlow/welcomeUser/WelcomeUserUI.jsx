@@ -42,6 +42,7 @@ export default class WelcomeUser extends Component {
                     <Input
                         placeholder='accimeesterlin'
                         value={username}
+                        required
                         onChange={this.handleChange}
                         name="githubUsername" />
                 </Form.Field>
@@ -50,9 +51,10 @@ export default class WelcomeUser extends Component {
                 <Form.Field>
                     <label>Location</label>
                     <Input
-                        placeholder='http://www.google.com'
+                        placeholder='Atlanta, GA'
                         value={userLocation}
                         onChange={this.handleChange}
+                        required
                         name="location" />
                 </Form.Field>
 
@@ -60,8 +62,9 @@ export default class WelcomeUser extends Component {
                 <Form.Field>
                     <label>Portfolio</label>
                     <Input
-                        placeholder='Atlanta, GA'
+                        placeholder='http://www.google.com'
                         value={portfolioWebsite}
+                        required
                         onChange={this.handleChange}
                         name="website" />
                 </Form.Field>
@@ -71,6 +74,7 @@ export default class WelcomeUser extends Component {
                     <TextArea
                         placeholder='Tell us more'
                         value={bio}
+                        required
                         onChange={this.handleChange}
                         name="bio" />
                 </div>
