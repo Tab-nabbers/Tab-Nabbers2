@@ -1,5 +1,5 @@
 .sidebar {
-
+    width: 220px;
 
     &-section {
         position: relative;
@@ -43,10 +43,10 @@
         right: 0;
     }
 
-    &-section:last-child {
-        position: absolute;
-        bottom: 0;
-    }
+    // &-section:last-child {
+    //     position: absolute;
+    //     bottom: 0;
+    // }
 
     &-section:last-child:after {
         content: "";

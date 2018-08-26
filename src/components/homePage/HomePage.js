@@ -1,13 +1,13 @@
 import HomePageUI from './HomePageUI';
 import { connect } from 'react-redux';
 
-const mapPropsToState  = () => {
+const mapPropsToState  = (state) => {
     return {
 
     };
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
     return {
         
     };

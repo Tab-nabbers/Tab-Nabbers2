@@ -5,11 +5,11 @@ import * as axiosSelectors from '../selectors/axiosSelector';
 
 export const githubMiddleware = (store) => (next) => (action) => {
     next(action);
+    const dispatch = store.dispatch;
 
 
     if (action.type === types.FETCH_GITHUB_PROFILE_FULFILLED) {
         const data = axiosSelectors.getData(action);
-        const dispatch = store.dispatch;
 
         if (selectors.isUserOnGithub(data)) {
             
@@ -17,9 +17,14 @@ export const githubMiddleware = (store) => (next) => (action) => {
             dispatch(fetchGithubUserAccount(url));
             return;
         }
+    }
 
-        // Not able to find user on Github
-        dispatch(getLocation());
+    const userLocation = store.getState().user.location;
 
+    if (userLocation === '' || userLocation === undefined) {
+        setTimeout(() => {
+            dispatch(getLocation());
+            
+        }, 1000);
     }
 }
