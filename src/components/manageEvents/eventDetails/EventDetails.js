@@ -1,4 +1,4 @@
-import SearchEventsUI from './SearchEventsUI';
+import EventDetailsUI from './EventDetailsUI';
 import { getEventBriteEvents } from '../../../actions/actionCreators';
 import * as selectors from '../../../selectors/eventSelectors';
 import { connect } from 'react-redux';
@@ -25,10 +25,10 @@ const mapDispatchPropsToState = (dispatch) => {
     };
 };
 
-const SearchEvents = connect(
+const EventDetails = connect(
     mapPropToState,
     mapDispatchPropsToState
-)(SearchEventsUI);
+)(EventDetailsUI);
 
 
-export default SearchEvents;
+export default EventDetails;

@@ -6,6 +6,8 @@ import LostCredentials from "./lostCredentials/LostCredentials";
 import HomePage from "./homePage/HomePage";
 import WelcomeNewUser from './loginFlow/welcomeUser/WelcomeUser';
 import Dashboard from './userDashboard/Dashboard';
+import EventDetails from './manageEvents/eventDetails/EventDetails';
+import SearchEvents from './manageEvents/searchEvents/SearchEvents';
 
 
 
@@ -17,5 +19,7 @@ export {
     LostCredentials,
     HomePage,
     WelcomeNewUser,
-    Dashboard
+    Dashboard,
+    EventDetails,
+    SearchEvents
 }

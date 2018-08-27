@@ -4,6 +4,16 @@ import * as selectors from '../selectors/githubSelectors';
 import * as axiosSelectors from '../selectors/axiosSelector';
 
 export const githubMiddleware = (store) => (next) => (action) => {
+
+    const userLocation = store.getState().user.location;
+    
+    if (!userLocation) {
+        setTimeout(() => {
+            dispatch(getLocation());
+            
+        }, 1000);
+    }
+
     next(action);
     const dispatch = store.dispatch;
 
@@ -17,14 +27,5 @@ export const githubMiddleware = (store) => (next) => (action) => {
             dispatch(fetchGithubUserAccount(url));
             return;
         }
-    }
-
-    const userLocation = store.getState().user.location;
-
-    if (userLocation === '' || userLocation === undefined) {
-        setTimeout(() => {
-            dispatch(getLocation());
-            
-        }, 1000);
     }
 }

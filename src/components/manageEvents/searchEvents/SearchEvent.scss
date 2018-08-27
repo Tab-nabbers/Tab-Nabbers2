@@ -1,0 +1,48 @@
+.events {
+
+
+    &-main {
+        width: 85%;
+        position: relative;
+        margin-left: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__search {
+            margin-top: 20px;
+            position: fixed;
+            width: 40%;
+            top: 0;
+            z-index: 99;
+        }
+        &__box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 5em;
+            
+        }
+
+        &__box-item {
+            border: 1px solid lightgrey;
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 15px;
+            height: 126px;
+            width: 679px;
+        }
+
+        &__box-item h2 {
+            font-size: 16px;
+        }
+
+        &__box-item img {
+            display: none;
+        }
+    }
+}

@@ -7,7 +7,8 @@ import {
   HomePage,
   WelcomeNewUser,
   Dashboard,
-  ManageEvents
+  ManageEvents,
+  EventDetails
 } from "./components";
 
 
@@ -18,6 +19,7 @@ const Routes = (props) => (
     <Route exact path="/login/:user" component={LoginFlow} />
     <Route exact path="/dashboard" component={Dashboard} />
     <Route exact path="/event/:type" component={ManageEvents} />
+    <Route exact path="/event/details/:id" component={EventDetails} />
   </div>
 );
 export default Routes;

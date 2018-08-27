@@ -60,15 +60,28 @@ export const reviewAndConfirm = (user) => {
     }
 };
 
-export const getEventBriteEvents = (value) => {
+export const getEventBriteEvents = (value, latitude = null, longitude = null) => {
     const host = 'http://express-services-events.stzwqjephe.us-west-2.elasticbeanstalk.com';
     const resource = '/search/events?';
-    const params = 'q=javascript&latitude=34.0204&longitude=-84.2445';
+    let params = `q=${value}`;
+
+    if (latitude && longitude) {
+        params += `&latitude=${latitude}&longitude=${longitude}`;
+    } 
     return {
         type: types.FETCH_EVENT_BRITE_EVENTS,
         payload: axios({
             url: `${host}${resource}${params}`,
             method: 'GET'
         })
+    };
+};
+
+export const getVenuesById = (id) => {
+    const host = 'http://express-services-events.stzwqjephe.us-west-2.elasticbeanstalk.com';
+    const resource = `/venues/${id}`;
+    return {
+        type: types.GET_VENUS_BY_ID,
+        payload: axios.get(`${host}${resource}`)
     };
 };

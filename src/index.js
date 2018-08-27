@@ -13,10 +13,12 @@ import './index.css';
 import { Provider } from 'react-redux';
 import reducers from './reducers/index';
 import { githubMiddleware } from './middleware/githubMiddleware';
+import { eventMiddleware } from './middleware/eventMiddleware';
 import App from "./App";
 
 const middlewares = [
     githubMiddleware,
+    eventMiddleware,
     promise(),
     logger
 ];

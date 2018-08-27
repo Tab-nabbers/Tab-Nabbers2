@@ -1,7 +1,11 @@
 .sidebar {
     width: 220px;
+    border: 1px solid lightgrey;
+    border-bottom: none;
+    min-height: 90%;
+    position: fixed;
 
-    &-section {
+&-section {
         position: relative;
 
         h2 {
