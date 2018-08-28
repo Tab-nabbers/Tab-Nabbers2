@@ -5,11 +5,6 @@ import * as selectors from '../../../selectors/eventSelectors';
 import './SearchEvent.css';
 export default class SearchEventsUI extends Component {
 
-    componentDidMount = () => {
-        const latitude = 34.0204;
-        const longitude = -84.2445;
-        // this.props.searchEventBrite('javascript');
-    };
 
     navigateToEventDetails = (id) => {
         this.props.history.push(`/event/details/${id}`);
@@ -17,7 +12,11 @@ export default class SearchEventsUI extends Component {
 
     createEventBox = (events) => {
         const { getLogoLink, getFullAddress, getTitle, getTimeStart } = selectors;
+        const { isGetEventsPending } = this.props;
 
+        if (isGetEventsPending) {
+            return "Loading...";
+        }
         return events.map((event, index) =>
             <div className="events-main__box-item" onClick={() => this.navigateToEventDetails(event.id)}>
                 <h2> {getTitle(event)}</h2>
@@ -46,7 +45,7 @@ export default class SearchEventsUI extends Component {
                 <div className="events-main">
                     <div className="events-main__search">
 
-                        <Form onSubmit = {this.searchEventByValue}>
+                        <Form onSubmit={this.searchEventByValue}>
                             <Input icon fluid placeholder='Search...'>
                                 <input onChange={this.handleChange} />
                                 <Icon name='search' />

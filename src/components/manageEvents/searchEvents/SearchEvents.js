@@ -1,6 +1,8 @@
 import SearchEventsUI from './SearchEventsUI';
 import { getEventBriteEvents } from '../../../actions/actionCreators';
 import * as selectors from '../../../selectors/eventSelectors';
+import * as apiStatus from '../../../selectors/apiRequestStatus';
+
 import { connect } from 'react-redux';
 
 const mapPropToState = (state) => {
@@ -8,12 +10,14 @@ const mapPropToState = (state) => {
     const totalEvents = selectors.getTotalEvents(state);
     const hasMoreEvents = selectors.hasMoreEvents(state);
     const pageCount = selectors.getPageCount(state);
+    const isGetEventsPending = apiStatus.getEventsPending(state);
     
     return {
         events,
         totalEvents,
         hasMoreEvents,
-        pageCount
+        pageCount,
+        isGetEventsPending
     };
 };
 
