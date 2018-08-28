@@ -8,7 +8,8 @@ import {
   WelcomeNewUser,
   Dashboard,
   ManageEvents,
-  EventDetails
+  EventDetails,
+  UserProfile
 } from "./components";
 
 
@@ -20,6 +21,7 @@ const Routes = (props) => (
     <Route exact path="/dashboard" component={Dashboard} />
     <Route exact path="/event/:type" component={ManageEvents} />
     <Route exact path="/event/details/:id" component={EventDetails} />
+    <Route exact path="/profile/:id" component={UserProfile} />
   </div>
 );
 export default Routes;

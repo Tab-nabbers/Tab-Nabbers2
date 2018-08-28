@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Icon, Form } from 'semantic-ui-react';
 import Sidebar from '../../../common/sidebar/Sidebar';
+import Header from '../../../common/header/Header';
 import * as selectors from '../../../selectors/eventSelectors';
 import './SearchEvent.css';
 export default class SearchEventsUI extends Component {
@@ -41,6 +42,7 @@ export default class SearchEventsUI extends Component {
 
         return (
             <div className="events">
+                <Header />
                 <Sidebar {...this.props} />
                 <div className="events-main">
                     <div className="events-main__search">
