@@ -3,16 +3,37 @@ import { getEventBriteEvents, getCurrentEventbriteEvent } from '../../../actions
 import * as selectors from '../../../selectors/eventSelectors';
 import { connect } from 'react-redux';
 
-const mapPropToState = (state) => {
-    const currentEvent = state.currentEvent;
+function findEventById(events, id) {
+
+    for (let i = 0; i < events.length; i++) {
+        if (events[i].id === id) {
+            return events[i];
+        }
+    }
+}
+
+const mapPropToState = (state, props) => {
+
+    const events = state.events;
+    const id = props.match.params.id;
+
+    let event = {};
+
+    if (events.length >= 1) {
+        event = findEventById(events, id);
+    } else {
+        event = state.currentEvent;
+    }
+    
+
     const totalEvents = selectors.getTotalEvents(state);
     const hasMoreEvents = selectors.hasMoreEvents(state);
     const pageCount = selectors.getPageCount(state);
 
 
-    const logoUrl = selectors.getLogoLink(currentEvent);
-    const title = selectors.getTitle(currentEvent);
-    const htmlElements = selectors.getHtml(currentEvent);
+    const logoUrl = selectors.getLogoLink(event);
+    const title = selectors.getTitle(event);
+    const htmlElements = selectors.getHtml(event);
 
 
     return {

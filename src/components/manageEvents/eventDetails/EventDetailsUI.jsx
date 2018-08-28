@@ -7,8 +7,13 @@ export default class EventDetailsUI extends Component {
     static displayName = 'Event Details';
     componentDidMount = () => {
         document.title = "Event Details";
-        const id = this.props.match.params.id;
-        this.props.getCurrentEvent(id);
+        const { getCurrentEvent, event } = this.props;
+
+        if (!event) {
+            const id = this.props.match.params.id;
+            getCurrentEvent(id);
+        }
+
     };
 
     render() {
