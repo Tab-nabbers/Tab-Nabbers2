@@ -5,21 +5,52 @@ import Header from '../../common/header/Header';
 import './profile.css';
 export default class UserProfileUI extends Component {
 
+    onHandleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+
+        this.props.getValue({
+            [name]: value
+        });
+    };
+
     render() {
+        const { 
+            bio,
+            email,
+            picture,
+            username,
+            name,
+            website,
+            userLocation,
+            isHire
+        } = this.props;
+
         return (
             <div className="edit-profile">
                 <Header />
-                <Sidebar {...this.props}/>
+                <Sidebar {...this.props} />
                 <Form>
                     <Form.Field>
+                        <label>Name</label>
+                        <input placeholder='Name' value={name} name="name" onChange={this.onHandleChange}/>
+                    </Form.Field>
+
+                    <Form.Field>
                         <label>Username</label>
-                        <input placeholder='username' />
+                        <input placeholder='username' value={username} name="username" onChange={this.onHandleChange}/>
+                    </Form.Field>
+
+
+                    <Form.Field>
+                        <label>Github User</label>
+                        <input placeholder='githubUser' name="githubUser" onChange={this.onHandleChange}/>
                     </Form.Field>
 
 
                     <Form.Field>
                         <label>Email</label>
-                        <input placeholder='email' />
+                        <input placeholder='email' name="email" value={email} onChange={this.onHandleChange}/>
                     </Form.Field>
 
                     <Form.Group grouped>
@@ -30,21 +61,26 @@ export default class UserProfileUI extends Component {
 
                     <Form.Field>
                         <label>Location</label>
-                        <input placeholder='location' />
+                        <input placeholder='location' name="location" value={userLocation} onChange={this.onHandleChange}/>
                     </Form.Field>
 
 
                     <Form.Field>
                         <label>Portfolio</label>
-                        <input placeholder='portfolio' />
+                        <input placeholder='portfolio' name="website" value={website} onChange={this.onHandleChange}/>
                     </Form.Field>
 
                     <Form.Field
                         id='form-textarea-control-opinion'
                         control={TextArea}
+                        name="bio"
                         label='Bio'
                         placeholder='Bio'
+                        value={bio}
+                        onChange={this.onHandleChange}
                     />
+
+
 
                 </Form>
             </div>

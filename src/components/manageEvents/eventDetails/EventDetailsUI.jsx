@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Button } from 'semantic-ui-react';
 import Sidebar from '../../../common/sidebar/Sidebar';
 import Header from '../../../common/header/Header';
 import ReactHtmlParser from 'react-html-parser';
@@ -17,14 +18,20 @@ export default class EventDetailsUI extends Component {
 
     };
 
+    goBack = () => {
+        this.props.history.goBack();
+    };
+
     render() {
         const { title, htmlElements } = this.props;
+        console.log('Props: ', this.props);
 
         return (
             <div className="event-details">
                 <Header />
-                <Sidebar { ...this.props }/>
+                <Sidebar { ...this.props } />
                 <div className="event-details__container">
+                    <Button onClick = {this.goBack}> Go back</Button>
                     <h2> {title} </h2>
 
                     <img src={this.props.logoUrl} alt="" />
