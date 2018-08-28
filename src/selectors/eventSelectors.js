@@ -39,6 +39,11 @@ export const getDescription = (event) => {
     return hasDescription ? event.description : '';
 }
 
+export const getHtml = (event) => {
+    const hasHtml = getDescription(event) && getDescription(event).html;
+    return hasHtml ? getDescription(event).html : '';
+}
+
 export const getDescriptionText = (event) => {
     const hasDescriptionText = getDescription(event) && getDescription(event).text;
     return hasDescriptionText ? getDescription(event).text : '';

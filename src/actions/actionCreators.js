@@ -60,6 +60,20 @@ export const reviewAndConfirm = (user) => {
     }
 };
 
+
+export const getCurrentEventbriteEvent = (id) => {
+    const host = 'http://express-services-events.stzwqjephe.us-west-2.elasticbeanstalk.com';
+    const resource = '/event';
+
+    return {
+        type: types.GET_CURRENT_EVENT,
+        payload: axios.get(`${host}${resource}/${id}`)
+    };
+};
+
+
+
+
 export const getEventBriteEvents = (value, latitude = null, longitude = null) => {
     const host = 'http://express-services-events.stzwqjephe.us-west-2.elasticbeanstalk.com';
     const resource = '/search/events?';
