@@ -7,9 +7,14 @@ import * as selectors from '../../../selectors/loginSelectors';
 
 const mapPropToState = (state, props) => {
     const isSignInCompleted = selectors.getSignInStatus(state);
-
+    const isSignInError = selectors.isSignInError(state);
+    const isSignInPending = selectors.isSignInPending(state);
+    const errorMessage = selectors.getSignInErrorMessage(state);
     return {
-        isSignInCompleted
+        isSignInCompleted,
+        isSignInError,
+        errorMessage,
+        isSignInPending
     };
 };
 

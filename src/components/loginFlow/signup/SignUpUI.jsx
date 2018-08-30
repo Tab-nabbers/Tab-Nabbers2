@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Message } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import './Signup.css';
 import { Redirect } from 'react-router-dom';
@@ -23,13 +23,22 @@ export default class SignUpUI extends Component {
         this.props.onSignUp(email, name, password);
     };
 
+
+    displayErrors = () => {
+        const { isSignUpError, errorMessage } = this.props;
+        if (isSignUpError) {
+            return <Message color='red'> {errorMessage}  </Message>;
+        }
+    };
+
     render() {
         const { isSignUpCompleted } = this.props;
         if (isSignUpCompleted) {
-            return <Redirect to = '/welcome'/>
+            return <Redirect to='/welcome' />
         }
         return (
             <Form className="signup" onSubmit={this.onSubmit}>
+                {this.displayErrors()}
                 <div className="signup-tabs">
                     <Link to="/login/existeduser" >Login</Link>
                     <Link to="/login/newuser">Join</Link>
@@ -49,7 +58,7 @@ export default class SignUpUI extends Component {
                         type="email"
                         name="email"
                         required
-                        onBlur = {this.emailValidation}
+                        onBlur={this.emailValidation}
                         onChange={this.handleOnChange} />
                 </Form.Field>
 

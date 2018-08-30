@@ -72,7 +72,7 @@ const UserReducer = (state = initialState, action) => {
 
         case types.GET_CURRENT_LOCATION_FULFILLED:
             return updateLocation(state, action);
-        case types.REVIEW_AND_CONFIRM:
+        case types.REVIEW_AND_CONFIRM_FULFILLED:
             return updateIsAuthenticated(state, action);
         default:
             return state;

@@ -5,9 +5,15 @@ import * as selectors from '../../../selectors/loginSelectors';
 
 const mapStateToProps = (state, props) => {
     const isSignUpCompleted = selectors.getSignUpStatus(state);
-    
+    const isSignUpError = selectors.isSignUpError(state);
+    const isSignUpPending = selectors.isSignUpPending(state);
+    const errorMessage = selectors.getSignUpErrorMessage(state);
+
     return {
-        isSignUpCompleted
+        isSignUpCompleted,
+        isSignUpError,
+        isSignUpPending,
+        errorMessage
     };
 };
 

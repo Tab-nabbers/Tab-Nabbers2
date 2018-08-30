@@ -2,19 +2,40 @@ import axios from "axios";
 import * as types from './actionTypes';
 
 export const onSignUp = (email, name, password) => {
+    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const resource = '/signup';
+
     return {
         type: types.ON_SIGN_UP,
-        email,
-        name,
-        password
+        payload: axios({
+            url: `${host}${resource}`,
+            method: 'POST',
+            data: {
+                email,
+                password,
+                name
+            }
+        })
     };
 };
 
 export const onSignIn = (email, password) => {
+    const host = 'http://localhost:9000';
+    const resource = '/signin';
     return {
         type: types.ON_SIGNIN,
-        email,
-        password
+        payload: axios({
+            url: `${host}${resource}`,
+            method: 'POST',
+            data: {
+                email,
+                password
+            },
+            proxy: {
+                host: 'http://localhost',
+                port: 9000
+              }
+        })
     }
 };
 
@@ -53,10 +74,15 @@ export const fetchGithubUserAccount = (url) => {
 
 
 export const reviewAndConfirm = (user) => {
+    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const resource = '/save';
     return {
         type: types.REVIEW_AND_CONFIRM,
-        // payload: axios({ method: 'POST', data: user }) // TODO
-        user,
+        payload: axios({
+            url: `${host}${resource}`,
+            method: 'POST',
+            data: user
+        })
     }
 };
 
@@ -81,7 +107,7 @@ export const getEventBriteEvents = (value, latitude = null, longitude = null) =>
 
     if (latitude && longitude) {
         params += `&latitude=${latitude}&longitude=${longitude}`;
-    } 
+    }
     return {
         type: types.FETCH_EVENT_BRITE_EVENTS,
         payload: axios({

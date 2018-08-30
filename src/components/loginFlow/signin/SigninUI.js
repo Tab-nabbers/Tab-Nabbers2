@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Message } from 'semantic-ui-react';
 import { Link, Redirect } from 'react-router-dom';
 import './SigninUI.css';
 export default class SigninUI extends Component {
@@ -21,6 +21,14 @@ export default class SigninUI extends Component {
         const value = event.target.value;
 
         this.setState({ [name]: value });
+    };
+
+    
+    displayErrors = () => {
+        const { isSignInError, errorMessage } = this.props;
+        if (isSignInError) {
+            return <Message color='red'> {errorMessage}  </Message>;
+        }
     };
     render() {
         const { isSignInCompleted } = this.props;
@@ -52,6 +60,8 @@ export default class SigninUI extends Component {
                         required
                         onChange={this.onHandleChange} />
                 </Form.Field>
+
+                {this.displayErrors()}
 
                 <Link to="/manage/password">Forgot Password</Link>
                 <Button> Submit </Button>

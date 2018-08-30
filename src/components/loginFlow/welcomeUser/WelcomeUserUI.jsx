@@ -20,8 +20,6 @@ export default class WelcomeUser extends Component {
     onSubmit = (event) => {
         event.preventDefault(); // stop browser default behavior
         const user = this.props.user;
-        // TODO
-        // Back Implementation to submit data
         this.props.reviewAndSubmit(user); 
     };
 

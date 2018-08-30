@@ -4,7 +4,7 @@ import * as selectors from '../selectors/githubSelectors';
 import * as axiosSelectors from '../selectors/axiosSelector';
 
 export const githubMiddleware = (store) => (next) => (action) => {
-
+    const dispatch = store.dispatch;
     const userLocation = store.getState().user.location;
     
     if (!userLocation) {
@@ -15,7 +15,6 @@ export const githubMiddleware = (store) => (next) => (action) => {
     }
 
     next(action);
-    const dispatch = store.dispatch;
 
 
     if (action.type === types.FETCH_GITHUB_PROFILE_FULFILLED) {
