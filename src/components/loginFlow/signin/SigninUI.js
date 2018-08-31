@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+
+
+
 import { Form, Button, Message } from 'semantic-ui-react';
+
+
+
 import { Link, Redirect } from 'react-router-dom';
 import './SigninUI.css';
 export default class SigninUI extends Component {
@@ -12,18 +18,19 @@ export default class SigninUI extends Component {
 
     onSubmit = (event) => {
         event.preventDefault();
-        const { email, password } = this.state;
+        const { password } = this.state;
+        const { email } = this.props;
         this.props.onSignIn(email, password);
     };
 
     onHandleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-
         this.setState({ [name]: value });
+        this.props.getValue({ [name]: value });
     };
 
-    
+
     displayErrors = () => {
         const { isSignInError, errorMessage } = this.props;
         if (isSignInError) {

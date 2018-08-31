@@ -1,4 +1,5 @@
 import * as types from '../actions/actionTypes';
+import * as selectors from '../selectors/axiosSelector';
 
 const initialState = {
     bio: '',
@@ -58,7 +59,15 @@ function updateIsAuthenticated(state, action) {
 };
 
 const UserReducer = (state = initialState, action) => {
+    
     switch (action.type) {
+        case types.GET_PROFILE_FULFILLED:
+            const payload = selectors.getPayload(action);
+            return {
+                ...state,
+                ...payload.data.user
+
+            };
         case types.FETCH_GITHUB_USER_ACCOUNT_FULFILLED:
             return updateUserInfoWithGithub(state, action);
         case types.GET_VALUE:

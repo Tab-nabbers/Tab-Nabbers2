@@ -1,9 +1,11 @@
 import * as types from '../../actions/actionTypes';
+import * as selectors from '../../selectors/axiosSelector';
 
 const initialState = {
     email: '',
     name: '',
     password: '',
+
     isSignUpCompleted: false,
     isSignInPending: false,
     onSignUpError: false,
@@ -14,6 +16,11 @@ const initialState = {
     signInErrorMessage: '',
     isSignUpPending: false
 
+};
+
+
+function saveTokenInStorage(token) {
+    localStorage.setItem('token', token);
 };
 
 
@@ -34,7 +41,7 @@ function updateWithSignInValue(state, action) {
 }
 
 function updateSignInError(state, action) {
-    const payload = action.payload.response.data;
+    const payload = selectors.getPayloadData(action);
     return {
         ...state,
         onSignInError: true,
@@ -45,6 +52,9 @@ function updateSignInError(state, action) {
 }
 
 function updateSigninComplete(state, action) {
+    const payload = selectors.getData(action);
+    const token = payload.token;
+    saveTokenInStorage(token); // saving token into LocalStorage
     return {
         ...state,
         isSignInCompleted: true,
@@ -57,6 +67,10 @@ function updateSigninComplete(state, action) {
 
 /* Sign Up Functions */
 function updateSignUpComplete(state, action) {
+    const payload = selectors.getData(action);
+    const token = payload.token;
+    saveTokenInStorage(token); // saving token into LocalStorage
+
     return {
         ...state,
         isSignUpCompleted: true,
@@ -68,7 +82,7 @@ function updateSignUpComplete(state, action) {
 }
 
 function updateSignUpError(state, action) {
-    const payload = action.payload.response.data;
+    const payload = selectors.getPayloadData(action);
     return {
         ...state,
         signUpErrorMessage: payload.message,

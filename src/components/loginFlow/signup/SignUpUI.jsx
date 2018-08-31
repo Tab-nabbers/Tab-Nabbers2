@@ -15,11 +15,13 @@ export default class SignUpUI extends Component {
         const name = event.target.name;
         const value = event.target.value;
         this.setState({ [name]: value });
+        this.props.getValue({ [name]: value });
     };
 
     onSubmit = (event) => {
         event.preventDefault();
-        const { email, name, password } = this.state;
+        const { password } = this.state;
+        const { email, name } = this.props;
         this.props.onSignUp(email, name, password);
     };
 

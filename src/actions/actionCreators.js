@@ -1,8 +1,10 @@
 import axios from "axios";
 import * as types from './actionTypes';
 
+
 export const onSignUp = (email, name, password) => {
-    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    // const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const host = 'http://localhost:9000';
     const resource = '/signup';
 
     return {
@@ -30,11 +32,7 @@ export const onSignIn = (email, password) => {
             data: {
                 email,
                 password
-            },
-            proxy: {
-                host: 'http://localhost',
-                port: 9000
-              }
+            }
         })
     }
 };
@@ -76,12 +74,18 @@ export const fetchGithubUserAccount = (url) => {
 export const reviewAndConfirm = (user) => {
     const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
     const resource = '/save';
+    const token = localStorage.getItem('token') || '';
+
     return {
         type: types.REVIEW_AND_CONFIRM,
         payload: axios({
             url: `${host}${resource}`,
             method: 'POST',
-            data: user
+            data: user,
+            headers: {
+                'x-tab-token': token
+            },
+
         })
     }
 };
@@ -96,8 +100,6 @@ export const getCurrentEventbriteEvent = (id) => {
         payload: axios.get(`${host}${resource}/${id}`)
     };
 };
-
-
 
 
 export const getEventBriteEvents = (value, latitude = null, longitude = null) => {
@@ -123,5 +125,22 @@ export const getVenuesById = (id) => {
     return {
         type: types.GET_VENUS_BY_ID,
         payload: axios.get(`${host}${resource}`)
+    };
+};
+
+export const getProfile = () => {
+    const host = 'http://localhost:9000';
+    const resource = '/profile';
+    const token = localStorage.getItem('token') || '';
+
+    return {
+        type: types.GET_PROFILE,
+        payload: axios({
+            url: `${host}${resource}`,
+            method: 'GET',
+            headers: {
+                'x-tab-token': token
+            }
+        })
     };
 };
