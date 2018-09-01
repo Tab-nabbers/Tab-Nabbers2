@@ -5,11 +5,16 @@ import Header from '../../common/header/Header';
 import './dashboard.css';
 
 export default class DashboardUI extends Component {
+
+    logout = () => {
+        window.localStorage.clear();
+        this.props.history.replace('/');
+    };
     render() {
 
         return (
             <div className="dashboard">
-                <Header />
+                <Header logout={this.logout} />
                 <Sidebar {...this.props} />
 
                 <div className="dashboard-container">

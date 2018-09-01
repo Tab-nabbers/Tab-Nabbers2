@@ -19,8 +19,10 @@ const initialState = {
 };
 
 
-function saveTokenInStorage(token) {
-    localStorage.setItem('token', token);
+function saveTokenInStorage(obj) {
+    for (let key in obj) {
+        localStorage.setItem(key, obj[key]);
+    }
 };
 
 
@@ -54,7 +56,11 @@ function updateSignInError(state, action) {
 function updateSigninComplete(state, action) {
     const payload = selectors.getData(action);
     const token = payload.token;
-    saveTokenInStorage(token); // saving token into LocalStorage
+    const isAuthenticated = payload.isAuthenticated;
+    saveTokenInStorage({
+        isAuthenticated,
+        token
+    }); // saving token into LocalStorage
     return {
         ...state,
         isSignInCompleted: true,
@@ -69,7 +75,11 @@ function updateSigninComplete(state, action) {
 function updateSignUpComplete(state, action) {
     const payload = selectors.getData(action);
     const token = payload.token;
-    saveTokenInStorage(token); // saving token into LocalStorage
+    const isAuthenticated = payload.isAuthenticated;
+    saveTokenInStorage({
+        token,
+        isAuthenticated
+    }); // saving token into LocalStorage
 
     return {
         ...state,

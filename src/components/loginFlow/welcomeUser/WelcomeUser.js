@@ -1,6 +1,6 @@
 import WelcomeUserUI from './WelcomeUserUI';
 import { connect } from 'react-redux';
-import { fetchGithubUserProfile, reviewAndConfirm } from '../../../actions//actionCreators';
+import { fetchGithubUserProfile, reviewAndConfirm, getLocation   } from '../../../actions//actionCreators';
 import { getValue } from '../../../actions/actionCreators';
 import * as userSelectors from '../../../selectors/userSelectors';
 
@@ -58,6 +58,9 @@ const mapDispatchToProps = (dispatch) => {
 
         reviewAndSubmit: (user) => {
             dispatch(reviewAndConfirm(user))
+        },
+        getLocation: () => {
+            dispatch(getLocation());
         }
     };
 };

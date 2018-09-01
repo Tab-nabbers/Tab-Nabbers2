@@ -14,6 +14,11 @@ export default class UserProfileUI extends Component {
         });
     };
 
+    logout = () => {
+        window.localStorage.clear();
+        this.props.history.replace('/');
+    };
+
     render() {
         const { 
             bio,
@@ -28,7 +33,7 @@ export default class UserProfileUI extends Component {
 
         return (
             <div className="edit-profile">
-                <Header />
+                <Header logout={this.logout}/>
                 <Sidebar {...this.props} />
                 <Form>
                     <Form.Field>

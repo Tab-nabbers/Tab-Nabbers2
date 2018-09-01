@@ -6,8 +6,12 @@ import './WelcomeUser.css';
 export default class WelcomeUser extends Component {
 
     componentDidMount = () => {
-        const { email, fetchGithubProfile } = this.props;
+        const { email, fetchGithubProfile, userLocation, getLocation } = this.props;
         fetchGithubProfile(email);
+
+        if (!userLocation) {
+            getLocation();
+        }
     };
 
     handleChange = (event) => {

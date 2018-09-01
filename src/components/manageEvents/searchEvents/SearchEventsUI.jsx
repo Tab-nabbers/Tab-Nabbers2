@@ -42,7 +42,7 @@ export default class SearchEventsUI extends Component {
 
         return (
             <div className="events">
-                <Header />
+                <Header logout = {this.props.logout}/>
                 <Sidebar {...this.props} />
                 <div className="events-main">
                     <div className="events-main__search">

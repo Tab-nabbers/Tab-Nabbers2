@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 import Sidebar from '../../../common/sidebar/Sidebar';
 import Header from '../../../common/header/Header';
@@ -28,7 +28,7 @@ export default class EventDetailsUI extends Component {
 
         return (
             <div className="event-details">
-                <Header />
+                <Header logout = {this.props.logout}/>
                 <Sidebar { ...this.props } />
                 <div className="event-details__container">
                     <Button onClick = {this.goBack}> Go back</Button>

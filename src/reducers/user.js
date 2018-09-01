@@ -1,6 +1,9 @@
 import * as types from '../actions/actionTypes';
 import * as selectors from '../selectors/axiosSelector';
 
+window.userLocationCount = 0;
+
+
 const initialState = {
     bio: '',
     githubUserSince: '',
@@ -59,7 +62,7 @@ function updateIsAuthenticated(state, action) {
 };
 
 const UserReducer = (state = initialState, action) => {
-    
+
     switch (action.type) {
         case types.GET_PROFILE_FULFILLED:
             const payload = selectors.getPayload(action);

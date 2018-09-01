@@ -22,6 +22,7 @@ export const onSignUp = (email, name, password) => {
 };
 
 export const onSignIn = (email, password) => {
+    // const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
     const host = 'http://localhost:9000';
     const resource = '/signin';
     return {
@@ -72,7 +73,8 @@ export const fetchGithubUserAccount = (url) => {
 
 
 export const reviewAndConfirm = (user) => {
-    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    // const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const host = 'http://localhost:9000';
     const resource = '/save';
     const token = localStorage.getItem('token') || '';
 
@@ -129,7 +131,7 @@ export const getVenuesById = (id) => {
 };
 
 export const getProfile = () => {
-    const host = 'http://localhost:9000';
+    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
     const resource = '/profile';
     const token = localStorage.getItem('token') || '';
 
