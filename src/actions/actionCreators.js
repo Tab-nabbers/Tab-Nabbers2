@@ -131,7 +131,8 @@ export const getVenuesById = (id) => {
 };
 
 export const getProfile = () => {
-    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    // const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const host = 'http://localhost:9000';
     const resource = '/profile';
     const token = localStorage.getItem('token') || '';
 

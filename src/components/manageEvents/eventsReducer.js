@@ -44,7 +44,8 @@ const eventReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.FETCH_EVENT_BRITE_EVENTS_FULFILLED:
             return updateEvents(state, action);
-
+        case types.LOGOUT:
+            return [];
         case types.FETCH_EVENT_BRITE_EVENTS_PENDING:
             return [];
         case types.GET_VENUS_BY_ID_FULFILLED:

@@ -7,9 +7,11 @@ const mapPropToState  = () => {
     };
 };
 
-const mapDispatchPropsToState = () => {
+const mapDispatchPropsToState = (dispatch) => {
     return {
-        
+        dispatchCustomAction: (action) => {
+            dispatch(action);
+        }
     };
 };
 

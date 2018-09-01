@@ -41,6 +41,9 @@ const mapDispatchPropsToState = (dispatch) => {
     return {
         getValue: (data) => {
             dispatch(getValue(data));
+        },
+        dispatchCustomAction: (action) => {
+            dispatch(action);
         }
     };
 };

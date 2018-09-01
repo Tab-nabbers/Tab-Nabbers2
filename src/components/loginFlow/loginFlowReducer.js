@@ -124,7 +124,8 @@ const signin = (state = initialState, action) => {
     switch (action.type) {
         case types.ON_SIGN_UP:
             return updateWithSignUpValue(state, action);
-
+        case types.LOGOUT:
+            return {};
         // Handle Sign Flow
         case types.ON_SIGNIN:
             return updateWithSignInValue(state, action);

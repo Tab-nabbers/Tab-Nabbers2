@@ -8,6 +8,7 @@ export default class DashboardUI extends Component {
 
     logout = () => {
         window.localStorage.clear();
+        this.props.dispatchCustomAction({ type: 'LOGOUT' });
         this.props.history.replace('/');
     };
     render() {

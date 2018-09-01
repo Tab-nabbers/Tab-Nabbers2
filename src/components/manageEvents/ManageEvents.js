@@ -11,9 +11,11 @@ const mapStateToProps  = (state, props) => {
     };
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        
+        dispatchCustomAction: (action) => {
+            dispatch(action);
+        }
     };
 };
 

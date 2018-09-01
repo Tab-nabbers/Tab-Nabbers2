@@ -1,4 +1,5 @@
 export const GET_VALUE = 'GET_VALUE';
+export const LOGOUT = 'LOGOUT';
 
 export const ON_SIGN_UP = 'ON_SIGN_UP';
 export const ON_SIGN_UP_FULFILLED = 'ON_SIGN_UP_FULFILLED';

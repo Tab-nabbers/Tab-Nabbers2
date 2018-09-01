@@ -71,6 +71,8 @@ const UserReducer = (state = initialState, action) => {
                 ...payload.data.user
 
             };
+        case types.LOGOUT:
+            return {};
         case types.FETCH_GITHUB_USER_ACCOUNT_FULFILLED:
             return updateUserInfoWithGithub(state, action);
         case types.GET_VALUE:
