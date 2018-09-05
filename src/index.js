@@ -1,9 +1,5 @@
 import React from 'react';
 import {
-    applyMiddleware,
-    createStore
-} from 'redux';
-import {
     BrowserRouter as Router
 } from "react-router-dom";
 import ReactDOM from 'react-dom';
