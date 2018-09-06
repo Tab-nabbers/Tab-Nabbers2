@@ -31,12 +31,6 @@ describe('Sign In', () => {
             const expectedPassword = '12345';
             expect(newState.password).toEqual(expectedPassword);
         });
-
-        it('should update sign in isSignInCompleted', () => {
-            const newState = loginReducer(state, action);
-            const isSignInCompleted = true;
-            expect(newState.isSignInCompleted).toEqual(isSignInCompleted);
-        });
     });
 
     describe('On Sign Up', () => {
@@ -66,5 +60,5 @@ describe('Sign In', () => {
 
     });
 
-    
+
 });
