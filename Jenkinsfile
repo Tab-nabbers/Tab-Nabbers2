@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent docker { image 'node:6.3' }
     stages {
         stage('Install Node Modules') {
             steps {
