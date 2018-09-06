@@ -1,9 +1,17 @@
 pipeline {
-    agent { docker { image 'node:6.3' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Install Node Modules') {
             steps {
-                sh 'npm --version'
+                sh ''' 
+                    npm install
+                '''
+            }
+        },
+
+        stage('Build') {
+            steps {
+                sh 'npm test'
             }
         }
     }

@@ -9,7 +9,7 @@ describe('Sign In', () => {
             password: '',
             name: '',
             isSignInCompleted: false,
-            isSignUpCompleted: false
+            isSignUpCompleted: false,
         };
     });
 
@@ -64,11 +64,6 @@ describe('Sign In', () => {
             expect(newState.name).toEqual(expectedName);
         });
 
-        it('should update sign up isSignUpCompleted', () => {
-            const newState = loginReducer(state, action);
-            const isSignUpCompleted = true;
-            expect(newState.isSignUpCompleted).toEqual(isSignUpCompleted);
-        });
     });
 
     
