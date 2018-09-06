@@ -7,7 +7,7 @@ pipeline {
                     npm install
                 '''
             }
-        },
+        }
 
         stage('Build') {
             steps {
