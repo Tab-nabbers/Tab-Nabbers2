@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 
+const PrivateRoute = ({ component: Component, path: url }) => (
+    <Route path={url} render={(props) => (
+        window.localStorage.getItem('isAuthenticated') || false === true
+            ? <Component {...props} />
+            : <Redirect to='/' />
+    )} />
+);
 
-export default class ProtectedRouteUI extends Component {
-    render() {
-        
-        const isAuthenticated = window.localStorage.getItem('isAuthenticated')|| false;
-        if (isAuthenticated) {
-            return <Route exact path={this.props.path} component={this.props.component} />
-        }
-        return <Redirect to='/' />
-    }
-}
+export default PrivateRoute;

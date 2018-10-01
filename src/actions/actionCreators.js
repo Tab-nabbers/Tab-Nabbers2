@@ -3,7 +3,7 @@ import * as types from './actionTypes';
 
 
 export const onSignUp = (email, name, password) => {
-    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const host = 'http://localhost:9000';
     const resource = '/signup';
 
     return {
@@ -21,7 +21,7 @@ export const onSignUp = (email, name, password) => {
 };
 
 export const onSignIn = (email, password) => {
-    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const host = 'http://localhost:9000';
     const resource = '/signin';
     return {
         type: types.ON_SIGNIN,
@@ -71,7 +71,7 @@ export const fetchGithubUserAccount = (url) => {
 
 
 export const reviewAndConfirm = (user) => {
-    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const host = 'http://localhost:9000';
     const resource = '/save';
     const token = localStorage.getItem('token') || '';
 
@@ -128,7 +128,7 @@ export const getVenuesById = (id) => {
 };
 
 export const getProfile = () => {
-    const host = 'http://express-service-authentication.rvepxemghh.us-east-1.elasticbeanstalk.com';
+    const host = 'http://localhost:9000';
     const resource = '/profile';
     const token = localStorage.getItem('token') || '';
 
