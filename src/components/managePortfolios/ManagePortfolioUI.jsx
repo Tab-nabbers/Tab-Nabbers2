@@ -27,6 +27,6 @@ export default class ManagePortfolio extends Component {
 
             default:
                 return <p> No Route Found</p>;
-        };
+        }
     }
 };

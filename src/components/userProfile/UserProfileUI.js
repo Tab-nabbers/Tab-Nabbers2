@@ -24,12 +24,12 @@ export default class UserProfileUI extends Component {
         const { 
             bio,
             email,
-            picture,
+            // picture,
             username,
             name,
             website,
             userLocation,
-            isHire
+            // isHire
         } = this.props;
 
         return (

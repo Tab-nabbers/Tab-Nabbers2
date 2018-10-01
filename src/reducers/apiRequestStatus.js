@@ -25,7 +25,7 @@ function updatePendingStatusByKey(state, action, status, key) {
 
 const apiRequestStatusReducer = (state = initialState, action) => {
     const getEventsKey = 'getEvents';
-    const getVenuesKey = 'getVenues';
+    // const getVenuesKey = 'getVenues';
 
     switch (action.type) {
         case types.FETCH_EVENT_BRITE_EVENTS_PENDING:
