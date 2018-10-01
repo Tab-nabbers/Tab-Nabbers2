@@ -85,9 +85,6 @@ export default class UserProfileUI extends Component {
                         value={bio}
                         onChange={this.onHandleChange}
                     />
-
-
-
                 </Form>
             </div>
         );

@@ -7,17 +7,17 @@ const ProfileSection = (props) => {
         <SidebarItem
             name="Edit"
             icon="edit"
-            url="/profile/edit"
+            url="/profile"
             {...props} />
         <SidebarItem
             name="Settings"
             icon="setting"
             {...props}
-            url="/profile/settings" />
+            url="/setting" />
         <SidebarItem
             name="Integration"
             icon="qrcode"
-            url="/profile/integrations"
+            url="/integration"
             {...props} />
     </SidebarSection>
 };

@@ -19,6 +19,9 @@ import ManageEvents from "./manageEvents/ManageEvents";
 // Portfolios
 import ManagePortfolio from './managePortfolios/ManagePortfolio';
 
+import Integration from './integrations/Integration';
+import Settings from './settings/Settings';
+
 
 export {
     ManageEvents,
@@ -31,5 +34,7 @@ export {
     Dashboard,
     EventDetails,
     SearchEvents,
-    ManagePortfolio
+    ManagePortfolio,
+    Integration,
+    Settings
 }
