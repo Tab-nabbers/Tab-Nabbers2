@@ -7,6 +7,8 @@ import FavoriteEvents from './favoriteEvents/FavoriteEvents';
 import Sidebar from '../../common/sidebar/Sidebar';
 import Header from '../../common/header/Header';
 
+import './manageEvents.css';
+
 export default class ManageEventsUI extends Component {
 
     logout = () => {
@@ -17,13 +19,15 @@ export default class ManageEventsUI extends Component {
     };
 
     defaultComponent = () => {
-        return <div>
+        return <div className="events">
             <Header {...this.props} />
-            <Sidebar {...this.props}/>
-            <h2>I am the Manage Events Page</h2>
+            <Sidebar {...this.props} />
+            <div className="events-default">
+                <h2>I am the Manage Events Page</h2>
+            </div>
         </div>
     };
-    
+
     render() {
         const eventType = this.props.eventType;
 

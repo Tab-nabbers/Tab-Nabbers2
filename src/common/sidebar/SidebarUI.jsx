@@ -20,7 +20,6 @@ export default class SidebarUI extends Component {
 
 
     render() {
-    console.log('Props: ', this.props);
         
         return (
             <div className="sidebar">

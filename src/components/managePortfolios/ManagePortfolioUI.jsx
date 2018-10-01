@@ -4,8 +4,7 @@ import ViewPortfolio from './viewPortfolios/ViewPortfolio';
 import FavoritePortfolio from './favoritePortfolio/FavoritePortfolio';
 import AddPortfolio from './addPortfolio/AddPortfolio';
 
-import Sidebar from '../../common/sidebar/Sidebar';
-import Header from '../../common/header//Header';
+import './managePortfolio.css';
 
 export default class ManagePortfolio extends Component {
 
@@ -15,32 +14,16 @@ export default class ManagePortfolio extends Component {
 
         switch (portfolioName) {
             case 'share':
-                return <div>
-                    <Header />
-                    <Sidebar {...this.props} />
-                    <SharePortfolio {...this.props} />;
-                </div>
+                return <SharePortfolio {...this.props} />;
 
             case 'view':
-                return <div>
-                    <Header />
-                    <Sidebar {...this.props} />
-                    <ViewPortfolio {...this.props} />
-                </div>;
+                return <ViewPortfolio {...this.props} />;
 
             case 'add':
-                return <div>
-                    <Header />
-                    <Sidebar {...this.props} />
-                    <AddPortfolio {...this.props} />
-                </div>;
+                return <AddPortfolio {...this.props} />;
 
             case 'favorite':
-                return <div>
-                    <Header />
-                    <Sidebar {...this.props} />
-                    <FavoritePortfolio {...this.props} />
-                </div>;
+                return <FavoritePortfolio {...this.props} />;
 
             default:
                 return <p> No Route Found</p>;
