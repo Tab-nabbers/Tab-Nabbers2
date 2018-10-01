@@ -24,16 +24,16 @@ export default class SidebarUI extends Component {
 
                 <EventSection
                     navigateToPage={this.navigateToPage}
-                    activeItem = {this.state.activeItem}
+                    activeItem={this.state.activeItem}
                 />
 
                 <PortfolioSection
                     navigateToPage={this.navigateToPage}
-                    activeItem = {this.state.activeItem}
+                    activeItem={this.state.activeItem}
                 />
 
                 <ProfileSection
-                    activeItem = {this.state.activeItem}
+                    activeItem={this.state.activeItem}
                     navigateToPage={this.navigateToPage}
                 />
 
