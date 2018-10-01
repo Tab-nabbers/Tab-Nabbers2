@@ -2,7 +2,6 @@ import React from 'react';
 import { Icon } from 'semantic-ui-react';
 
 const SidebarItem = (props) => {
-    console.log('Props: ', props);
     const { activeItem, url } = props;
     const activeClass = activeItem === url ? 'active' : '';
     return (

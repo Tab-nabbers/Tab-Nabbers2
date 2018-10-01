@@ -9,7 +9,8 @@ import {
   Dashboard,
   ManageEvents,
   EventDetails,
-  UserProfile
+  UserProfile,
+  ManagePortfolio
 } from "./components";
 
 import ProtectedRoute from './common/auth/ProtectedRouteUI';
@@ -25,6 +26,7 @@ const Routes = (props) => {
       <ProtectedRoute path="/event/:type" component={ManageEvents} />
       <ProtectedRoute path="/event/details/:id" component={EventDetails} />
       <ProtectedRoute path="/profile/:id" component={UserProfile} />
+      <ProtectedRoute path="/portfolio/:id" component={ManagePortfolio} />
     </div>
   );
 }

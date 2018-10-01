@@ -1,14 +1,23 @@
-import UserDashboard from "./userDashboard/Dashboard";
 import UserProfile from "./userProfile/UserProfile";
-import ManageEvents from "./manageEvents/ManageEvents";
-import LoginFlow from "./loginFlow/Login";
 import LostCredentials from "./lostCredentials/LostCredentials";
 import HomePage from "./homePage/HomePage";
+
+// Login
 import WelcomeNewUser from './loginFlow/welcomeUser/WelcomeUser';
+import LoginFlow from "./loginFlow/Login";
+
+// Dashboard
+import UserDashboard from "./userDashboard/Dashboard";
 import Dashboard from './userDashboard/Dashboard';
+
+// Events
 import EventDetails from './manageEvents/eventDetails/EventDetails';
 import SearchEvents from './manageEvents/searchEvents/SearchEvents';
+import ManageEvents from "./manageEvents/ManageEvents";
 
+
+// Portfolios
+import ManagePortfolio from './managePortfolios/ManagePortfolio';
 
 
 export {
@@ -21,5 +30,6 @@ export {
     WelcomeNewUser,
     Dashboard,
     EventDetails,
-    SearchEvents
+    SearchEvents,
+    ManagePortfolio
 }
