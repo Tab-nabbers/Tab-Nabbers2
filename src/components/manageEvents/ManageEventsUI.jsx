@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import CreateEvents from './createEvents/CreateEvents';
 import DisplayEvents from './displayEvents/DisplayEvents';
 import SearchEvents from './searchEvents/SearchEvents';
+import FavoriteEvents from './favoriteEvents/FavoriteEvents';
+
+import Sidebar from '../../common/sidebar/Sidebar';
+import Header from '../../common/header/Header';
 
 export default class ManageEventsUI extends Component {
 
@@ -11,13 +15,17 @@ export default class ManageEventsUI extends Component {
         this.props.history.push('/');
 
     };
+
+    defaultComponent = () => {
+        return <div>
+            <Header {...this.props} />
+            <Sidebar {...this.props}/>
+            <h2>I am the Manage Events Page</h2>
+        </div>
+    };
+    
     render() {
         const eventType = this.props.eventType;
-        let DefaultComponent = (
-            <div>
-                <h2>I am the Manage Events Page</h2>
-            </div>
-        );
 
 
         switch (eventType) {
@@ -25,7 +33,7 @@ export default class ManageEventsUI extends Component {
                 return <SearchEvents {...this.props} logout={this.logout} />
 
             case 'favorite':
-                return <SearchEvents {...this.props} logout={this.logout} />
+                return <FavoriteEvents {...this.props} logout={this.logout} />
 
             case 'myevents':
                 return <DisplayEvents {...this.props} logout={this.logout} />
@@ -33,11 +41,8 @@ export default class ManageEventsUI extends Component {
             case 'add':
                 return <CreateEvents{...this.props} logout={this.logout} />
 
-            case 'nextweek':
-                return <SearchEvents {...this.props} logout={this.logout} />
-
             default:
-                return DefaultComponent;
+                return this.defaultComponent();
         }
     };
 };

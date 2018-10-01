@@ -9,7 +9,7 @@ import './Sidebar.css';
 export default class SidebarUI extends Component {
 
     state = {
-        activeItem: '/event/search'
+        activeItem: this.props.match.url || '/event/search'
     };
 
     navigateToPage = (url) => {
@@ -18,7 +18,10 @@ export default class SidebarUI extends Component {
     };
 
 
+
     render() {
+    console.log('Props: ', this.props);
+        
         return (
             <div className="sidebar">
 

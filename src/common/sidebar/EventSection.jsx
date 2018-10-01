@@ -27,7 +27,7 @@ const ProfileSection = (props) => {
         <SidebarItem
             name="Next Week "
             icon="clock"
-            url="/events/nextweek"
+            url="/event/nextweek"
             {...props} />
     </SidebarSection>
 };
